@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login/Register Form</title>
+    <style>
+      body {
+        background-color: #ffffff; /* Warna putih */
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #5c4033; /* Warna coklat kopi */
+        border-radius: 5px;
+        margin-top: 100px;
+        color: #fff;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #fff; /* Warna putih */
+        color: #000; /* Warna teks hitam */
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ffd11a;
+        color: #4d3900;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .form-toggle {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .form-toggle a {
+        color: #ffd11a;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login/Register</h2>
+      <form id="login-form">
+        <input type="text" placeholder="Username" required />
+        <input type="password" placeholder="Password" required />
+        <input type="submit" value="Login" />
+      </form>
+      <form id="register-form" style="display: none">
+        <input type="text" placeholder="Username" required />
+        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Confirm Password" required />
+        <input type="submit" value="Register" />
+      </form>
+      <div class="form-toggle">
+        <a href="#" onclick="toggleForm()">Create an Account</a>
+      </div>
+    </div>
+
+    <script>
+      function toggleForm() {
+        var loginForm = document.getElementById("login-form");
+        var registerForm = document.getElementById("register-form");
+        var formToggle = document.getElementsByClassName("form-toggle")[0];
+
+        if (loginForm.style.display === "none") {
+          loginForm.style.display = "block";
+          registerForm.style.display = "none";
+          formToggle.innerHTML =
+            '<a href="#" onclick="toggleForm()">Create an Account</a>';
+        } else {
+          loginForm.style.display = "none";
+          registerForm.style.display = "block";
+          formToggle.innerHTML =
+            '<a href="#" onclick="toggleForm()">Already have an account? Login</a>';
+        }
+      }
+    </script>
+  </body>
+</html>
